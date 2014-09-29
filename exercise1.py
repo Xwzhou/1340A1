@@ -46,7 +46,13 @@ def grade_to_gpa(grade):
     if type(grade) is str:
         print ("letter") # remove this line once the code is implemented
         # check that the grade is one of the accepted values
-
+        def check_grade(grade2):
+            grade2 in "a"
+        check_grade(grade)
+            print (grade)
+            letter_grade = grade
+        else:
+            raise ValueError("Grade is not one of the accepted values")
                 # assign grade to letter_grade
     elif type(grade) is int:
         print("mark") # remove this line once the code is implemented
@@ -77,4 +83,4 @@ def grade_to_gpa(grade):
 
     return gpa
 
-grade_to_gpa("A")
+grade_to_gpa("B")
