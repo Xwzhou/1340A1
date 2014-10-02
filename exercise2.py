@@ -16,7 +16,7 @@ __status__ = "Prototype"
 
 # imports one per line
 
-
+list_upc = []
 def checksum (upc):
     """
     Checks if the digits in a UPC is consistent with checksum
@@ -31,18 +31,44 @@ def checksum (upc):
     """
 
     # check type of input
+    if type(upc) == str:
+
+        #  check length of string
+        if len(upc) == 12:
+                print(upc)
+                # convert string to array
+                # hint: use the list function
+                for number in range(0,12):
+                    list_upc.append(int(upc[number]))
+        # raise ValueError if not 12
+        else:
+            raise ValueError("Not 12 digit")
     # raise TypeError if not string
+    else:
+        raise TypeError("Not String")
 
-    # check length of string
-    # raise ValueError if not 12
-
-    # convert string to array
-    # hint: use the list function
-
+    print(list_upc)
     # generate checksum using the first 11 digits provided
+    odd_sum = sum(list_upc[0::2])
+    print(list_upc[0::2])
+    print(odd_sum)
     # check against the the twelfth digit
+    even_sum = sum(list_upc[1::2])
+    print(list_upc[1::2])
+    print(even_sum)
+    total_sum = odd_sum+even_sum
+    modulo_result = total_sum % 10
+    print(total_sum)
+    print(modulo_result)
+    def modulo_check(modulo):
+        if(modulo_result) != 0:
+            return (10-modulo_result)
+        else:
+            return modulo_result
+    final_result = modulo_check(modulo_result)
 
+    if final_result == list_upc[11]:
+        return True
     # return True if they are equal, False otherwise
-
-    return False
-
+    else:
+        return False
