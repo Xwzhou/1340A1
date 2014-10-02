@@ -46,20 +46,55 @@ def grade_to_gpa(grade):
     if type(grade) is str:
         print ("letter") # remove this line once the code is implemented
         # check that the grade is one of the accepted values
-        def check_grade(grade2):
-            grade2 in "a"
-        check_grade(grade)
-            print (grade)
-            letter_grade = grade
-        else:
-            raise ValueError("Grade is not one of the accepted values")
+        def check_grade_string(str_grade):
+            '''
+            :param str_grade(string): input value to be compared with accepted values
+            :return: Value or error
+            '''
+            accepted_values = ['A+', 'A', 'A-', 'B+', 'B', 'B-', 'FZ']
+            if str_grade in  accepted_values:
+                print(str_grade)
+            else:
+               raise ValueError("Grade is not one of the accepted values")
                 # assign grade to letter_grade
+        check_grade_string(grade)
+
     elif type(grade) is int:
         print("mark") # remove this line once the code is implemented
         # check that grade is in the accepted range
+        def check_grade_integer(int_grade):
+            '''
+            :param int_grade:
+            :return:
+            '''
+            accepted_values = range(0, 101)
+            if int_grade in accepted_values:
+                print(int_grade)
+            else:
+                raise ValueError("Integer Grade is not one of the accepted values")
+        check_grade_integer(grade)
         # convert the numeric grade to a letter grade
-        # assign the value to letter_grade
+        def mark_to_letter(int_grade):
+            if int_grade in range(90,101):
+                letter_grade = "A+"
+            elif int_grade in range(85,90):
+                letter_grade = "A"
+            elif int_grade in range(80,85):
+                letter_grade = "A-"
+            elif int_grade in range(77,80):
+                letter_grade = "B+"
+            elif int_grade in range(73,77):
+                letter_grade = "B"
+            elif int_grade in range(70,73):
+                letter_grade = "B-"
+            else:
+                letter_grade = "FZ"
+
+            return letter_grade
+
+        # assign the value to letter_grade1
         # hint: letter_grade = mark_to_letter(grade)
+        print(mark_to_letter(grade))
     else:
         # raise a TypeError exception
         raise TypeError("Invalid type passed as parameter")
@@ -83,4 +118,4 @@ def grade_to_gpa(grade):
 
     return gpa
 
-grade_to_gpa("B")
+grade_to_gpa()
