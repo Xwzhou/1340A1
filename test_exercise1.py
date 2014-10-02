@@ -26,7 +26,7 @@ def test_letter_grade():
     assert grade_to_gpa("B") == 4.0
     assert grade_to_gpa("B-") == 4.0
     assert grade_to_gpa("FZ") == 4.0
-    
+
     with pytest.raises(ValueError):
         grade_to_gpa("q")
     # add more tests for invalid values
