@@ -18,6 +18,7 @@ __status__ = "Prototype"
 
 
 def checksum (upc):
+
     """
     Checks if the digits in a UPC is consistent with checksum
 
@@ -26,23 +27,44 @@ def checksum (upc):
         Boolean: True, checksum is correct
         False, otherwise
     :raises:
-        TypeError if input is not a strong
+        TypeError if input is not a string
         ValueError if string is the wrong length (with error string stating how many digits are over or under
     """
 
     # check type of input
+    if type(upc) is str
+    else:
+        raise TypeError("The type of input is not accepted.")
+
     # raise TypeError if not string
 
     # check length of string
+    if len(upc) is 12
+    else:
+        raise ValueError("The length of input is not accepted.")
     # raise ValueError if not 12
 
     # convert string to array
+    list_upc=list(upc)
     # hint: use the list function
 
     # generate checksum using the first 11 digits provided
+
+    odd_list_upc=list_upc[::2]
+    odd= sum(odd_list_upc)*3
+
+    even_list_upc=list_upc[1::2]
+    even= sum(even_list_upc)
+
+    checksum=(odd+even)%10
+
     # check against the the twelfth digit
+    if checksum==list_upc[12]:
+        return True
+      else
+        return False
 
     # return True if they are equal, False otherwise
 
-    return False
+
 
