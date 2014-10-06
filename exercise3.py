@@ -13,6 +13,7 @@ def decide_rps(player1, player2):
 
     '''
 
+    #Dictionary for RPS Results
     rps_results = {}
     rps_results[("Rock", "Paper")] = 2
     rps_results[("Rock", "Scissors")] = 1
