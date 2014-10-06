@@ -46,27 +46,25 @@ def checksum (upc):
     # raise TypeError if not string
     else:
         raise TypeError("Not String")
-
-    print(list_upc)
     # generate checksum using the first 11 digits provided
-    odd_sum = sum(list_upc[0::2])
-    print(list_upc[0::2])
-    print(odd_sum)
-    # check against the the twelfth digit
-    even_sum = sum(list_upc[1::2])
-    print(list_upc[1::2])
-    print(even_sum)
+    #First process Adding the odd numbered digitas and multiplying by three
+    odd_sum = sum(list_upc[0:11:2]) * 3
+    #Second procedure Add the digits in the even numbered positions to the result
+    even_sum = sum(list_upc[1:10:2])
     total_sum = odd_sum+even_sum
+    #Third procedure Find the result modulo 10
     modulo_result = total_sum % 10
-    print(total_sum)
-    print(modulo_result)
+    #Fourth Procedure if the result is not zero, subtract the result from ten
     def modulo_check(modulo):
+        """
+        :param modulo: Integer value
+        :return: Integer value after UPC checksum
+        """
         if(modulo_result) != 0:
             return (10-modulo_result)
         else:
             return modulo_result
     final_result = modulo_check(modulo_result)
-
     if final_result == list_upc[11]:
         return True
     # return True if they are equal, False otherwise

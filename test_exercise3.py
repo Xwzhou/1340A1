@@ -19,8 +19,8 @@ def test_checksum():
     assert decide_rps("Paper", "Rock") == 1
     assert decide_rps("Paper", "Scissors") == 2
     #Check Incorrect
-    assert decide_rps("Pa", "Scis") == 0
-    assert decide_rps(1,2) == 2
+    assert decide_rps(1, 2) == 0
+    assert decide_rps("Pi","Scu") == 2
 
    # other tests
 

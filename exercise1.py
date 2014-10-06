@@ -44,7 +44,8 @@ def grade_to_gpa(grade):
     gpa = 0.0
 
     if type(grade) is str:
-        print ("letter") # remove this line once the code is implemented
+        print ("letter")
+
         # check that the grade is one of the accepted values
         def check_grade_string(str_grade):
             '''
@@ -52,11 +53,11 @@ def grade_to_gpa(grade):
             :return: Value or error
             '''
             accepted_values = ['A+', 'A', 'A-', 'B+', 'B', 'B-', 'FZ']
-            if str_grade in  accepted_values:
-                print(str_grade)
+            if str_grade in accepted_values:
+                print("Letter grade is " + str_grade)
             else:
-               raise ValueError("Grade is not one of the accepted values")
-                # assign grade to letter_grade
+               raise ValueError("Letter grade is not one of the accepted values")
+        # assign grade to letter_grade
         check_grade_string(grade)
         letter_grade = grade
 
@@ -65,18 +66,22 @@ def grade_to_gpa(grade):
         # check that grade is in the accepted range
         def check_grade_integer(int_grade):
             '''
-            :param int_grade:
-            :return:
+            :param int_grade(Integer): input value to be compared with accepted values
+            :return: Print input value or error
             '''
             accepted_values = range(0, 101)
             if int_grade in accepted_values:
-                print(int_grade)
+                print("Integer grade is " + str(int_grade))
             else:
-                raise ValueError("Integer Grade is not one of the accepted values")
+                raise ValueError("Integer grade is not one of the accepted values")
         check_grade_integer(grade)
-        # convert the numeric grade to a letter grade
 
+        # convert the numeric grade to a letter grade
         def mark_to_letter(int_grade):
+            '''
+            :param int_grade(integer):
+            :return: Str value. Converted letter grade from integer grade.
+            '''
             if int_grade in range(90,101):
                 return "A+"
             elif int_grade in range(85,90):
@@ -92,8 +97,7 @@ def grade_to_gpa(grade):
             else:
                 return "FZ"
 
-
-        # assign the value to letter_grade1
+        # assign the value to letter_grade
         # hint: letter_grade = mark_to_letter(grade)
         letter_grade = mark_to_letter(grade)
         print(letter_grade)

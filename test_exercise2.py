@@ -17,16 +17,6 @@ import pytest
 from exercise2 import checksum
 
 
-def test_checksum():
-    """
-    Inputs that are the correct format and length
-    """
-    assert checksum("786936224306") is True
-    assert checksum("085392132225") is True
-    assert checksum("717951000841") is False
-    # other tests
-
-
 def test_input():
     """
     Inputs that are the incorrect format and length
@@ -39,6 +29,17 @@ def test_input():
         checksum("1")
         checksum("1234567890")
 
+
+def test_checksum():
+    """
+    Inputs that are the correct format and length
+    """
+    assert checksum("786936224306") is True
+    assert checksum("085392132225") is True
+    assert checksum("717951000841") is False
     # other tests
 
+
+
 # add functions for any other tests
+    # other tests
