@@ -23,7 +23,7 @@ def decide_rps(player1, player2):
 
 
                 else:
-                    raise ValueError("the value of input is not valid")
+                     raise ValueError("the value of input is not valid")
             else:
                 raise TypeError("the type of input is not valid")
         else:
@@ -37,11 +37,12 @@ def decide_rps(player1, player2):
     result = player1 + player2
     player1_win=["rockscissors","scissorspaper","paperrock"]
     player2_win=["rockpaper","scissorsrock","paperscissors"]
+    tie=["rockrock","scissorsscissors","paperpaper"]
 
     #decision making
     if result in player1_win:
         return 1
     elif result in player2_win:
         return 2
-
-
+    elif result in tie:
+        return 0
