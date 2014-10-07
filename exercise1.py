@@ -54,7 +54,7 @@ def grade_to_gpa(grade):
             '''
             accepted_values = ['A+', 'A', 'A-', 'B+', 'B', 'B-', 'FZ']
             if str_grade in accepted_values:
-                print("Letter grade is " + str_grade)
+                print("Letter grade is ", str_grade)
             else:
                raise ValueError("Letter grade is not one of the accepted values")
         # assign grade to letter_grade
@@ -71,7 +71,7 @@ def grade_to_gpa(grade):
             '''
             accepted_values = range(0, 101)
             if int_grade in accepted_values:
-                print("Integer grade is " + str(int_grade))
+                print("Integer grade is ", int_grade)
             else:
                 raise ValueError("Integer grade is not one of the accepted values")
         check_grade_integer(grade)

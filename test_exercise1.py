@@ -19,7 +19,7 @@ def test_letter_grade():
     """
     Letter grade inputs
     """
-    assert grade_to_gpa("A+") == 4.0
+    assert grade_to_gpa("A+") == 4.3
     assert grade_to_gpa("A") == 4.0
     assert grade_to_gpa("A-") == 3.7
     assert grade_to_gpa("B+") == 3.3
@@ -36,7 +36,7 @@ def test_percentage_grade():
     """
     Numeric grade inputs
     """
-    assert grade_to_gpa("100") == 4.0
+    assert grade_to_gpa(100) == 4.0
     assert grade_to_gpa(95) == 4.0
     assert grade_to_gpa(90) == 4.0
     
