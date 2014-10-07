@@ -16,8 +16,8 @@ __status__ = "Prototype"
 
 # imports one per line
 
-list_upc = []
-def checksum (upc):
+
+def checksum(upc):
     """
     Checks if the digits in a UPC is consistent with checksum
 
@@ -26,46 +26,45 @@ def checksum (upc):
         Boolean: True, checksum is correct
         False, otherwise
     :raises:
-        TypeError if input is not a strong
+        TypeError if input is not a string
         ValueError if string is the wrong length (with error string stating how many digits are over or under
     """
-
+    # convert string to array
     # check type of input
-    if type(upc) == str:
-        #  check length of string
-        if len(upc) == 12:
-                print(upc)
-                # convert string to array
-                # hint: use the list function
-                for number in range(0,12):
-                    list_upc.append(int(upc[number]))
-        # raise ValueError if not 12
-        else:
-            raise ValueError("Not 12 digit")
     # raise TypeError if not string
-    else:
-        raise TypeError("Not String")
-    # generate checksum using the first 11 digits provided
-    #First process Adding the odd numbered digitas and multiplying by three
-    odd_sum = sum(list_upc[0:11:2]) * 3
-    #Second procedure Add the digits in the even numbered positions to the result
-    even_sum = sum(list_upc[1:10:2])
-    total_sum = odd_sum+even_sum
-    #Third procedure Find the result modulo 10
-    modulo_result = total_sum % 10
-    #Fourth Procedure if the result is not zero, subtract the result from ten
-    def modulo_check(modulo):
-        """
-        :param modulo: Integer value
-        :return: Integer value after UPC checksum
-        """
-        if(modulo_result) != 0:
-            return (10-modulo_result)
+    # check length of string
+    if type(upc) is str:
+        if len(upc) == 12:
+            list_upc = []
+            for digit in list(upc):
+                list_upc.append(int(digit))
+            # generate checksum using the first 11 digits provided
+
+            # pick out all the odd-numbered digit
+            odd_list_upc = list_upc[::2]
+            #sum up all the odd-numbered digit and multiply by 3
+            odd = sum(odd_list_upc) * 3
+            #pick out all the even-numbered digit
+            even_list_upc = list_upc[1:11:2]
+            #sum up all the even-numbered digit
+            even = sum(even_list_upc)
+            #calculate checksum
+            checksum = (odd + even) % 10
+            if checksum != 0:
+                checksum = 10 - checksum
+                # check against the the twelfth digit
+            if checksum == list_upc[11]:
+                # return True if they are equal, False otherwise
+                return True
+            else:
+                return False
         else:
-            return modulo_result
-    final_result = modulo_check(modulo_result)
-    if final_result == list_upc[11]:
-        return True
-    # return True if they are equal, False otherwise
+            raise ValueError("The length of input is not accepted.")
     else:
-        return False
+        raise TypeError("The type of input is not accepted.")
+
+
+# raise ValueError if not 12
+
+
+# hint: use the list function
