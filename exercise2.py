@@ -17,8 +17,7 @@ __status__ = "Prototype"
 # imports one per line
 
 
-def checksum (upc):
-
+def checksum(upc):
     """
     Checks if the digits in a UPC is consistent with checksum
 
@@ -30,41 +29,45 @@ def checksum (upc):
         TypeError if input is not a string
         ValueError if string is the wrong length (with error string stating how many digits are over or under
     """
-
+    # convert string to array
     # check type of input
-    if type(upc) is str
+    # raise TypeError if not string
+    # check length of string
+    if type(upc) is str:
+        if len(upc) == 12:
+            list_upc = []
+            for digit in list(upc):
+                list_upc.append(int(digit))
+            # generate checksum using the first 11 digits provided
+
+            # pick out all the odd-numbered digit
+            odd_list_upc = list_upc[::2]
+            #sum up all the odd-numbered digit and multiply by 3
+            odd = sum(odd_list_upc) * 3
+            #pick out all the even-numbered digit
+            even_list_upc = list_upc[1:11:2]
+            #sum up all the even-numbered digit
+            even = sum(even_list_upc)
+            #calculate checksum
+            checksum = (odd + even) % 10
+            if checksum != 0:
+                checksum = 10 - checksum
+                # check against the the twelfth digit
+            if checksum == list_upc[11]:
+                # return True if they are equal, False otherwise
+                return True
+            else:
+                return False
+        else:
+            raise ValueError("The length of input is not accepted.")
     else:
         raise TypeError("The type of input is not accepted.")
 
-    # raise TypeError if not string
 
-    # check length of string
-    if len(upc) is 12
-    else:
-        raise ValueError("The length of input is not accepted.")
-    # raise ValueError if not 12
+# raise ValueError if not 12
 
-    # convert string to array
-    list_upc=list(upc)
-    # hint: use the list function
 
-    # generate checksum using the first 11 digits provided
-
-    odd_list_upc=list_upc[::2]
-    odd= sum(odd_list_upc)*3
-
-    even_list_upc=list_upc[1::2]
-    even= sum(even_list_upc)
-
-    checksum=(odd+even)%10
-
-    # check against the the twelfth digit
-    if checksum==list_upc[12]:
-        return True
-      else
-        return False
-
-    # return True if they are equal, False otherwise
+# hint: use the list function
 
 
 
